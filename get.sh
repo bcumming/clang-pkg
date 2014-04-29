@@ -64,5 +64,8 @@ cd ${LLVMBASE}
 cd $path/projects
 svn co http://llvm.org/svn/llvm-project/test-suite/$base test-suite
 
+# workaround SUSE Linux header conflict with keyword new
+sed -i 's|#include <sys\/vt.h>|#define new WORKAROUNDFIX\n#include <sys\/vt.h>\n#undef new|g' $path/projects/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cc
+
 cd ${LLVMBASE}
 
