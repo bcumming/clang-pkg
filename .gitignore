@@ -4,6 +4,11 @@
 *.o
 *.obj
 
+# vim swap files
+*.swp
+*.swn
+*.swo
+
 # Compiled Dynamic libraries
 *.so
 *.dylib
