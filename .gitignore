@@ -24,3 +24,8 @@
 *.exe
 *.out
 *.app
+
+# paths created when downloading & installing
+llvm
+build
+install

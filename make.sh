@@ -40,7 +40,7 @@ fi
 mkdir build
 
 cd build
-../llvm/configure --prefix=${install_path}
+../llvm/configure --prefix=${install_path} --enable-optimized
 
 make -j $threads
 make install
