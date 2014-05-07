@@ -38,7 +38,7 @@ echo =======================================
 echo =======================================
 echo llvm/$base
 echo =======================================
-svn co http://llvm.org/svn/llvm-project/llvm/$base "$path"
+svn export http://llvm.org/svn/llvm-project/llvm/$base "$path"
 
 # checkout Clang
 echo =======================================
@@ -46,7 +46,7 @@ echo cfe/$base
 echo =======================================
 cd ${LLVMBASE}
 cd $path/tools
-svn co http://llvm.org/svn/llvm-project/cfe/$base clang
+svn export http://llvm.org/svn/llvm-project/cfe/$base clang
 
 # checkout Compiler-RT
 echo =======================================
@@ -54,15 +54,15 @@ echo compiler-rt/$base
 echo =======================================
 cd ${LLVMBASE}
 cd $path/projects
-svn co http://llvm.org/svn/llvm-project/compiler-rt/$base compiler-rt
+svn export http://llvm.org/svn/llvm-project/compiler-rt/$base compiler-rt
 
 #Get the Test Suite Source Code [Optional]
-echo =======================================
-echo test-suite/$base
-echo =======================================
-cd ${LLVMBASE}
-cd $path/projects
-svn co http://llvm.org/svn/llvm-project/test-suite/$base test-suite
+#echo =======================================
+#echo test-suite/$base
+#echo =======================================
+#cd ${LLVMBASE}
+#cd $path/projects
+#svn export http://llvm.org/svn/llvm-project/test-suite/$base test-suite
 
 cd ${LLVMBASE}
 
