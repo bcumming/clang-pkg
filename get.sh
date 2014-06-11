@@ -38,7 +38,7 @@ echo =======================================
 echo =======================================
 echo llvm/$base
 echo =======================================
-svn export http://llvm.org/svn/llvm-project/llvm/$base "$path"
+svn export http://llvm.org/svn/llvm-project/llvm/$base "$path" > ${LLVMBASE}/log.llvm
 
 # checkout Clang
 echo =======================================
@@ -46,7 +46,7 @@ echo cfe/$base
 echo =======================================
 cd ${LLVMBASE}
 cd $path/tools
-svn export http://llvm.org/svn/llvm-project/cfe/$base clang
+svn export http://llvm.org/svn/llvm-project/cfe/$base clang > ${LLVMBASE}/log.clang
 
 # checkout Compiler-RT
 echo =======================================
@@ -54,7 +54,7 @@ echo compiler-rt/$base
 echo =======================================
 cd ${LLVMBASE}
 cd $path/projects
-svn export http://llvm.org/svn/llvm-project/compiler-rt/$base compiler-rt
+svn export http://llvm.org/svn/llvm-project/compiler-rt/$base compiler-rt > ${LLVMBASE}/log.compiler-rt
 
 #Get the Test Suite Source Code [Optional]
 #echo =======================================
@@ -67,6 +67,13 @@ svn export http://llvm.org/svn/llvm-project/compiler-rt/$base compiler-rt
 cd ${LLVMBASE}
 
 # workaround SUSE Linux header conflict with keyword new
-sed -i 's|#include <sys\/vt.h>|#define new WORKAROUNDFIX\n#include <sys\/vt.h>\n#undef new|g' $path/projects/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cc
+header="${path}/projects/compiler-rt/lib/sanitizer_common/sanitizer_platform_limits_posix.cc"
+if [ -f "$header" ]
+then
+    echo =======================================
+    echo fixing dodgy header
+    echo =======================================
+    sed -i 's|#include <sys\/vt.h>|#define new WORKAROUNDFIX\n#include <sys\/vt.h>\n#undef new|g' "${header}"
+fi
 
 

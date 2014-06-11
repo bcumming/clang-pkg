@@ -29,3 +29,6 @@
 llvm
 build
 install
+
+log.*
+RELEASE*
