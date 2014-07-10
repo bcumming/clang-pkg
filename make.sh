@@ -45,4 +45,8 @@ cd build
 make -j $threads
 make install
 
+# copy the static analysis helpers...
 cd $base_path
+cp -R $source_path/tools/clang/tools/scan-view/ $install_path/bin
+cp -R $source_path/tools/clang/tools/scan-build/ $install_path/bin
+
