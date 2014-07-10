@@ -9,8 +9,11 @@ LLVMBASE=`pwd`
 #       svn ls http://llvm.org/svn/llvm-project/llvm/tags
 # for example, the tag for version 3.4 is
 #       RELEASE_34
+# in which you find different rc, dot and final versions
 # so we would use the following to check it out
-#       ./get.sh -v RELEASE_34
+#       ./get.sh -v RELEASE_34/final
+# take care: the tag/xxx versions might not match exactly for all
+# of llvm, clang and compiler-rt
 
 version=latest
 while getopts "v:" opt
