@@ -1,4 +1,4 @@
 clang-pkg
 =========
 
-packaging llvm and clang for Cray systems
+bash scripts for check out, build and install of llvm and clang for Cray systems
